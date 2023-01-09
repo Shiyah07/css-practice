@@ -4,18 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Internal CSS</title>
+    <title>Testing Cascading</title>
+    <!-- This is a link to the external stylesheet in this website. -->
+    <link rel="stylesheet" href="stylesheets/main.css" />
 
-    <!-- This demonstrates how to create an internal stylesheet using the style tag. -->
+    <!-- 
+      An internal stylesheet that affects all elements on this page.
+      The styling in the internal stylesheet will overwrite the styling
+      in the external stylesheet if the same property is styled in both places.
+    -->
     <style>
-      /* 
-        This styles the body of the web page to have a background color of #f5f5ff,
-        which is white with a hint of blue, using the background-color CSS property
-        and a font color of midnightblue using the color CSS property.
-      */
+      /* This styles the font color for all body elements to be dark orange. */
       body {
-        background-color: #f5f5ff;
-        color: #6f6fe9;
+        color: rgb(105, 134, 134);
       }
 
       nav ul {
@@ -43,21 +44,21 @@
         color: #6f6fe9;
       }
 
-      /*
-        This styles all h1 tags to be center aligned and have a font size of 40 px.
-      */
+      /* This styles the main heading to have its text be right aligned. */
       h1 {
-        text-align: center;
-        font-size: 40px;
-      }
-
-      /* This styles all p tags to have a font size of 24 px. */
-      p {
-        font-size: 24px;
+        text-align: right;
       }
     </style>
   </head>
-  <body>
+  <!-- 
+    This body tag has inline styling that changes the font color of all
+    body elements.
+    Since this is the same property that shows up in the internal stylesheet
+    and the external stylesheet, the value that is used by the web page is the
+    value given by the inline styling.
+    This means that inline styling overwrites both internal and external styling.
+  -->
+  <body style="color: rgb(117, 50, 117)">
     <nav>
       <ul>
         <li><a href="index.html" class="nav-link">Inline CSS</a></li>
@@ -74,13 +75,12 @@
     </nav>
 
     <main>
-      <h1>Internal CSS</h1>
+      <h1>Testing Cascading</h1>
 
-      <p>This page shows the effects of adding internal CSS to a web page.</p>
+      <p>This page shows the effects of adding external, internal, and inline CSS to a web page.</p>
 
       <p>Does this paragraph have the same styling as my other paragraph?</p>
     </main>
   </body>
 </html>
-
 <!-- all comments from mr hardman-->
